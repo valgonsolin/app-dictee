@@ -1,5 +1,5 @@
 <ul class="nav nav-pills nav-fill flex-fill">
     <li *ngFor="let link of headerLinks" class="nav-item flex-fill">
-        <a class="nav-link" routerLink="{{link.path}}" [class.active]="this.location.path() === link.path">{{ link.text }}</a>
+        <a class="nav-link" routerLink="{{link.path}}" [class.active]="getCurrentPath() === link.path">{{ link.text }}</a>
     </li>
 </ul>

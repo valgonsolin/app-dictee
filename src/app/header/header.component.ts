@@ -18,6 +18,10 @@ export class HeaderComponent implements OnInit {
     { path: '/connexion', text: 'Connexion' }
   ];
 
+  getCurrentPath(): string {
+    return this.location.path();
+  }
+
 
   constructor(private location: Location) { }
 
