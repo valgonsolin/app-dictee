@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-header',
@@ -8,14 +8,24 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  activeComponent: String;
+  headerLinks: HeaderLink[] = [
+    { path: '/dictee', text: 'Dictée' },
+    { path: '/progression', text: 'Progression' },
+    { path: '/grammaire', text: 'Grammaire' },
+    { path: '/vocabulaire', text: 'Vocabulaire' },
+    { path: '/culturegenerale', text: 'Culture Générale' },
+    { path: '/abonnement', text: 'Abonnement' },
+    { path: '/connexion', text: 'Connexion' }
+  ];
 
-  constructor(
-    private route: ActivatedRoute,
-  ) { }
 
-  ngOnInit() {
-    this.route.url.subscribe( U => this.activeComponent = U[0].path);
-  }
+  constructor(private location: Location) { }
 
+  ngOnInit() { }
+
+}
+
+class HeaderLink {
+  path: string;
+  text: string;
 }
