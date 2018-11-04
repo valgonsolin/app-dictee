@@ -6,6 +6,7 @@ import { Location } from '@angular/common';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
+
 export class HeaderComponent implements OnInit {
 
   headerLinks: HeaderLink[] = [
@@ -21,7 +22,6 @@ export class HeaderComponent implements OnInit {
   getCurrentPath(): string {
     return this.location.path();
   }
-
 
   constructor(private location: Location) { }
 
