@@ -9,11 +9,15 @@
         <p class="card-text">{{ remplaceEspace(reponse) }}</p>
       </div>
     </div>
-    <form>
-      <div class="form-group">
-        <label for="reponse">Ecris ici :</label>
-        <textarea class="form-control" name="reponse" [(ngModel)]="reponse" rows="5"></textarea>
+    <div class="card" id="console">
+      <div class="card-body">
+        <form>
+          <textarea class="form-control" name="reponse" [(ngModel)]="reponse" rows="5"></textarea>
+        </form>
       </div>
-    </form>
+      <div class="card-footer text-center">
+        Console
+      </div>
+    </div>
   </div>
 </div>

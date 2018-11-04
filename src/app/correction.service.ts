@@ -24,19 +24,20 @@ export class CorrectionService {
     const body = new FormData();
     body.append('text', text);
     body.append('language', 'fr');
-    const rawCorr = this.http.post<Correction>(this.corrUrl, body).pipe(catchError(this.handleError('correction', [])));
-    rawCorr.subscribe( corr => {
-      corr.matches.forEach(rawError => {
-        const error = new Error();
-        error.length = parseInt(rawError.length, 10);
-        error.offset = parseInt(rawError.offset, 10);
-        error.message = rawError.message;
-        error.sentence = rawError.sentence;
-        error.rule = rawError.rule.description;
-        error.category = rawError.rule.category.name;
-        errors.push(error);
+    this.http.post<any>(this.corrUrl, body)
+      .pipe(catchError(this.handleError('correction', [])))
+      .subscribe( corr => {
+        corr.matches.forEach(rawError => {
+          const error = new Error();
+          error.length = parseInt(rawError.length, 10);
+          error.offset = parseInt(rawError.offset, 10);
+          error.message = rawError.message;
+          error.sentence = rawError.sentence;
+          error.rule = rawError.rule.description;
+          error.category = rawError.rule.category.name;
+          errors.push(error);
+        });
       });
-    });
     return of(errors);
   }
 
@@ -52,6 +53,3 @@ export class Error {
   rule: string;
 }
 
-class Correction {
-  matches: Object[];
-}
