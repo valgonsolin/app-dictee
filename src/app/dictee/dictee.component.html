@@ -1,3 +1,19 @@
-<p>
-  dictee works!
-</p>
+<div class="row">
+  <div class="col-lg-3">
+    <app-dictee-description [dictee]="currentDictee"></app-dictee-description>
+  </div>
+  <div class="col-lg-9">
+    <div class="card" id="copie">
+      <div class="card-body">
+        <p class="card-text">Voici ta copie :</p>
+        <p class="card-text">{{ remplaceEspace(reponse) }}</p>
+      </div>
+    </div>
+    <form>
+      <div class="form-group">
+        <label for="reponse">Ecris ici :</label>
+        <textarea class="form-control" name="reponse" [(ngModel)]="reponse" rows="5"></textarea>
+      </div>
+    </form>
+  </div>
+</div>

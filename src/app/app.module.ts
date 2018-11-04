@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +12,7 @@ import { VocabulaireComponent } from './vocabulaire/vocabulaire.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { CultureGeneraleComponent } from './culture-generale/culture-generale.component';
 import { AbonnementComponent } from './abonnement/abonnement.component';
+import { DicteeDescriptionComponent } from './dictee-description/dictee-description.component';
 
 @NgModule({
   declarations: [
@@ -22,11 +24,13 @@ import { AbonnementComponent } from './abonnement/abonnement.component';
     VocabulaireComponent,
     ConnexionComponent,
     CultureGeneraleComponent,
-    AbonnementComponent
+    AbonnementComponent,
+    DicteeDescriptionComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

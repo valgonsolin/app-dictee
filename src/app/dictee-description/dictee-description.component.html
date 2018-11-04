@@ -1,0 +1,11 @@
+<div class="card" id="description">
+  <div class="card-header">
+    Description de la dictée
+  </div>
+  <div class="card-body">
+    <h4 class="card-title">{{ dictee.titre }}</h4>
+    <h5 class="card-subtitle text-muted">Auteur : {{ dictee.auteur }}</h5>
+    <p class="card-text">{{ dictee.description }}</p>
+    <p class="card-text">Difficulté : {{ '★'.repeat(dictee.difficulte) }}</p>
+  </div>
+</div>

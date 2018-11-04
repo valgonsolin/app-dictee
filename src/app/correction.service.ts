@@ -24,7 +24,7 @@ export class CorrectionService {
     const body = new FormData();
     body.append('text', text);
     body.append('language', 'fr');
-    const rawCorr = this.http.post<Object>(this.corrUrl, body).pipe(catchError(this.handleError('correction', [])));
+    const rawCorr = this.http.post<Correction>(this.corrUrl, body).pipe(catchError(this.handleError('correction', [])));
     rawCorr.subscribe( corr => {
       corr.matches.forEach(rawError => {
         const error = new Error();
@@ -50,4 +50,8 @@ export class Error {
   sentence: string;
   category: string;
   rule: string;
+}
+
+class Correction {
+  matches: Object[];
 }
